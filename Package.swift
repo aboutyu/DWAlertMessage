@@ -19,7 +19,7 @@ let package = Package(
             dependencies: [],
             resources: [
                 // This will process the /Sources/MyLibrary/Resources directory.
-                .process("Resources")
+                .process("Resources/Assets.xcassets"),
             ]),
         .testTarget(
             name: "DWAlertMessageTests",
