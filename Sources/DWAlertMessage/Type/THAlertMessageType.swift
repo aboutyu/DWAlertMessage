@@ -11,12 +11,12 @@ public enum THAlertMessageType {
     case exclamation
     case custom(icon: UIImage)
     
-    var icon: UIImage {
+    var icon: UIImage? {
         switch self {
         case .pill:
-            return UIImage(named: "ic_popup_pill")!
+            return UIImage(named: "ic_popup_pill", in: Bundle.module, compatibleWith: nil)
         case .exclamation:
-            return UIImage(named: "ic_popup_exclamation")!
+            return UIImage(named: "ic_popup_exclamation", in: Bundle.module, compatibleWith: nil)
         case .custom(let icon):
             return icon
         }
