@@ -16,7 +16,7 @@ public struct DWAlertMessageResult {
         self.data = data
     }
     
-    func result() -> (buttonType: THAlertMessageButton, data: Any?) {
+    public func result() -> (buttonType: THAlertMessageButton, data: Any?) {
         return (buttonType, data)
     }
 }
