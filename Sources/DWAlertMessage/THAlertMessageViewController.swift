@@ -35,6 +35,7 @@ class THAlertMessageViewController: UIViewController {
         label.lineBreakMode = .byCharWrapping
         label.numberOfLines = 0
         label.text = self.dto.title
+        label.font = self.dto.titleFont
         return label
     }()
     
@@ -162,6 +163,7 @@ extension THAlertMessageViewController: UICollectionViewDataSource {
 
         let button = self.dto.button[indexPath.row]
         cell.nameLabel.textColor = self.dto.buttonTextColor
+        cell.nameLabel.font = self.dto.buttonFont
         cell.backgroundColor = {
             switch button {
             case .submit: return self.dto.submitColor

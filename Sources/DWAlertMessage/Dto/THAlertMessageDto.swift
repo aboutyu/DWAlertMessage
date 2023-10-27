@@ -14,6 +14,7 @@ public struct THAlertMessageDto {
     var message: NSAttributedString
     var data: Any?
     var titleFont: UIFont
+    var buttonFont: UIFont
     var submitColor: UIColor
     var cancelColor: UIColor
     var buttonTextColor: UIColor
@@ -23,9 +24,10 @@ public struct THAlertMessageDto {
                 title: String? = nil,
                 message: NSAttributedString,
                 titleFont: UIFont = .systemFont(ofSize: 17),
+                buttonFont: UIFont = .systemFont(ofSize: 15),
+                buttonTextColor: UIColor = .white,
                 submitColor: UIColor,
                 cancelColor: UIColor,
-                buttonTextColor: UIColor = .white,
                 data: Any? = nil) {
         self.messageType = type
         self.title = title
@@ -34,6 +36,7 @@ public struct THAlertMessageDto {
         self.titleFont = titleFont
         self.submitColor = submitColor
         self.cancelColor = cancelColor
+        self.buttonFont = buttonFont
         self.buttonTextColor = buttonTextColor
         
         self.button = {
