@@ -13,22 +13,28 @@ public struct THAlertMessageDto {
     var title: String?
     var message: NSAttributedString
     var data: Any?
+    var titleFont: UIFont
     var submitColor: UIColor
     var cancelColor: UIColor
+    var buttonTextColor: UIColor
     
     public init(type: THAlertMessageType,
                 button: [THAlertMessageButton],
                 title: String? = nil,
                 message: NSAttributedString,
+                titleFont: UIFont = .systemFont(ofSize: 17),
                 submitColor: UIColor,
                 cancelColor: UIColor,
+                buttonTextColor: UIColor = .white,
                 data: Any? = nil) {
         self.messageType = type
         self.title = title
         self.message = message
         self.data = data
+        self.titleFont = titleFont
         self.submitColor = submitColor
         self.cancelColor = cancelColor
+        self.buttonTextColor = buttonTextColor
         
         self.button = {
             if button.isEmpty { return [THAlertMessageButton.cancel] }

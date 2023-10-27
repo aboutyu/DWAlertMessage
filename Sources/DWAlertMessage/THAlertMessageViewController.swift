@@ -161,6 +161,7 @@ extension THAlertMessageViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! THAlertMessageButtonCell
 
         let button = self.dto.button[indexPath.row]
+        cell.nameLabel.textColor = self.dto.buttonTextColor
         cell.backgroundColor = {
             switch button {
             case .submit: return self.dto.submitColor

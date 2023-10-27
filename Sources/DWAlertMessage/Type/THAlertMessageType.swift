@@ -21,6 +21,5 @@ public enum THAlertMessageType {
             return icon
         }
     }
-    
 }
 
