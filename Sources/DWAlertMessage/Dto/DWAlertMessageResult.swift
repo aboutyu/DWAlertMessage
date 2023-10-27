@@ -8,19 +8,15 @@
 import Foundation
 
 public struct DWAlertMessageResult {
-    private var type: THAlertMessageButton
-    private var model: Any?
+    private var buttonType: THAlertMessageButton
+    private var data: Any?
     
     public init(_ buttonType: THAlertMessageButton, data: Any?) {
-        self.type = buttonType
-        self.model = data
+        self.buttonType = buttonType
+        self.data = data
     }
     
-    func buttonType() -> THAlertMessageButton {
-        return type
-    }
-    
-    func data() -> Any? {
-        return model
+    func result() -> (buttonType: THAlertMessageButton, data: Any?) {
+        return (buttonType, data)
     }
 }
