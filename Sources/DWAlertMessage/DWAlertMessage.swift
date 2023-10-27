@@ -9,7 +9,7 @@ import UIKit
 public class DWAlertMessage {
     private var target: UIViewController
     private var dto: THAlertMessageDto
-    public var action: ((DWAlertMessageResult) -> ())? = nil
+    public var action: ((THAlertMessageButton, Any?) -> ())? = nil
     
     public init(_ target: UIViewController, data: THAlertMessageDto) {
         self.target = target
@@ -27,7 +27,7 @@ public class DWAlertMessage {
 extension DWAlertMessage: THAlertViewControllerDelegate {
     func tappedButtonPopupV2View(_ tapped: THAlertMessageButton, data: Any?) {
         guard let action = self.action else { return }
-        action(DWAlertMessageResult(tapped, data: data))
+        action(tapped, data)
     }
 }
 
