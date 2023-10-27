@@ -7,8 +7,8 @@
 import UIKit
 
 public struct DWAlertMessageResult {
-    var buttonType: THAlertMessageButton
-    var data: Any?
+    public var buttonType: THAlertMessageButton
+    public var data: Any?
     
     public init(_ buttonType: THAlertMessageButton, data: Any?) {
         self.buttonType = buttonType
