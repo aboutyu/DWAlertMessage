@@ -6,32 +6,6 @@
 
 import UIKit
 
-public struct THAlertMessageTitleStyle {
-    var name: String
-    var font: UIFont
-    var textColor: UIColor
-    
-    public init(name: String, font: UIFont, textColor: UIColor) {
-        self.name = name
-        self.font = font
-        self.textColor = textColor
-    }
-}
-
-public struct THAlertMessageButtonStyle {
-    var name: String
-    var font: UIFont
-    var textColor: UIColor
-    var buttonColor: UIColor
-    
-    public init(name: String, font: UIFont, textColor: UIColor, buttonColor: UIColor) {
-        self.name = name
-        self.font = font
-        self.textColor = textColor
-        self.buttonColor = buttonColor
-    }
-}
-
 public enum THAlertMessageButton {
     case submit(button: THAlertMessageButtonStyle, index: Int)
     case cancel(button: THAlertMessageButtonStyle)
