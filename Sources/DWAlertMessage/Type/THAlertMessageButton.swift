@@ -7,11 +7,11 @@
 import UIKit
 
 public struct THAlertMessageTitleStyle {
-    let name: String
-    let font: UIFont
-    let textColor: UIColor
+    var name: String
+    var font: UIFont
+    var textColor: UIColor
     
-    init(name: String, font: UIFont, textColor: UIColor) {
+    public init(name: String, font: UIFont, textColor: UIColor) {
         self.name = name
         self.font = font
         self.textColor = textColor
@@ -19,12 +19,12 @@ public struct THAlertMessageTitleStyle {
 }
 
 public struct THAlertMessageButtonStyle {
-    let name: String
-    let font: UIFont
-    let textColor: UIColor
-    let buttonColor: UIColor
+    var name: String
+    var font: UIFont
+    var textColor: UIColor
+    var buttonColor: UIColor
     
-    init(name: String, font: UIFont, textColor: UIColor, buttonColor: UIColor) {
+    public init(name: String, font: UIFont, textColor: UIColor, buttonColor: UIColor) {
         self.name = name
         self.font = font
         self.textColor = textColor
