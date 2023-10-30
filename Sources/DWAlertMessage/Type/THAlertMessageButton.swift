@@ -10,6 +10,12 @@ public struct THAlertMessageTitleStyle {
     let name: String
     let font: UIFont
     let textColor: UIColor
+    
+    init(name: String, font: UIFont, textColor: UIColor) {
+        self.name = name
+        self.font = font
+        self.textColor = textColor
+    }
 }
 
 public struct THAlertMessageButtonStyle {
