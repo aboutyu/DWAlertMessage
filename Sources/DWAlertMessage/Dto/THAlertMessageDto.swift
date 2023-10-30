@@ -9,38 +9,29 @@ import UIKit
 
 public struct THAlertMessageDto {
     var messageType: THAlertMessageType
-    var button: [THAlertMessageButton]
-    var title: String?
+    var title: THAlertMessageTitleStyle?
     var message: NSAttributedString
+    var button: [THAlertMessageButton]
     var data: Any?
-    var titleFont: UIFont
-    var buttonFont: UIFont
-    var submitColor: UIColor
-    var cancelColor: UIColor
-    var buttonTextColor: UIColor
     
     public init(type: THAlertMessageType,
-                button: [THAlertMessageButton],
-                title: String? = nil,
+                title: THAlertMessageTitleStyle? = nil,
                 message: NSAttributedString,
-                titleFont: UIFont = .systemFont(ofSize: 17),
-                buttonFont: UIFont = .systemFont(ofSize: 15),
-                buttonTextColor: UIColor = .white,
-                submitColor: UIColor,
-                cancelColor: UIColor,
+                button: [THAlertMessageButton],
                 data: Any? = nil) {
         self.messageType = type
         self.title = title
         self.message = message
         self.data = data
-        self.titleFont = titleFont
-        self.submitColor = submitColor
-        self.cancelColor = cancelColor
-        self.buttonFont = buttonFont
-        self.buttonTextColor = buttonTextColor
         
         self.button = {
-            if button.isEmpty { return [THAlertMessageButton.cancel] }
+            if button.isEmpty {
+                let cancel = THAlertMessageButtonStyle(name: "취소", 
+                                                       font: .systemFont(ofSize: 16),
+                                                       textColor: .white,
+                                                       buttonColor: .gray)
+                return [THAlertMessageButton.cancel(button: cancel)]
+            }
             return button
         }()
     }

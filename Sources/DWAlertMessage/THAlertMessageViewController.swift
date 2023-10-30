@@ -34,8 +34,11 @@ class THAlertMessageViewController: UIViewController {
         label.textAlignment = .center
         label.lineBreakMode = .byCharWrapping
         label.numberOfLines = 0
-        label.text = self.dto.title
-        label.font = self.dto.titleFont
+        
+        let title = self.dto.title
+        label.text = title?.name
+        label.font = title?.font
+        label.textColor = title?.textColor
         return label
     }()
     
@@ -160,18 +163,7 @@ extension THAlertMessageViewController: UICollectionViewDataSource {
     
     public func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! THAlertMessageButtonCell
-
-        let button = self.dto.button[indexPath.row]
-        cell.nameLabel.textColor = self.dto.buttonTextColor
-        cell.nameLabel.font = self.dto.buttonFont
-        cell.backgroundColor = {
-            switch button {
-            case .submit: return self.dto.submitColor
-            case .cancel: return self.dto.cancelColor
-            }
-        }()
-        cell.reload(button)
-        
+        cell.reload(self.dto.button[indexPath.row])
         return cell
     }
     

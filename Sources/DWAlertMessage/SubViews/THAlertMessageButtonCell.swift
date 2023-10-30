@@ -33,13 +33,9 @@ class THAlertMessageButtonCell: UICollectionViewCell {
         self.nameLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         self.nameLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
         
-        self.nameLabel.text = {
-            switch button {
-            case .submit(let name, _): return name
-            case .cancel: return "취소"
-            }
-        }()
-        
-        self.backgroundColor = self.backgroundColor
+        self.nameLabel.text = button.name
+        self.nameLabel.textColor = button.textColor
+        self.nameLabel.font = button.font
+        self.backgroundColor = button.buttonColor
     }
 }
