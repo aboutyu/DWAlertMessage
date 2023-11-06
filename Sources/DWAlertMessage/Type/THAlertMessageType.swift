@@ -9,6 +9,7 @@ import UIKit
 public enum THAlertMessageType {
     case pill
     case exclamation
+    case downloadFile
     case custom(icon: UIImage)
     
     var icon: UIImage? {
@@ -17,6 +18,8 @@ public enum THAlertMessageType {
             return UIImage(named: "ic_popup_pill", in: Bundle.module, compatibleWith: nil)
         case .exclamation:
             return UIImage(named: "ic_popup_exclamation", in: Bundle.module, compatibleWith: nil)
+        case .downloadFile:
+            return UIImage(named: "ic_popup_file_download", in: Bundle.module, compatibleWith: nil)
         case .custom(let icon):
             return icon
         }
