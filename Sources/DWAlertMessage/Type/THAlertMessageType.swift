@@ -11,6 +11,7 @@ public enum THAlertMessageType {
     case exclamation
     case downloadFile
     case custom(icon: UIImage)
+    case none
     
     var icon: UIImage? {
         switch self {
@@ -22,6 +23,17 @@ public enum THAlertMessageType {
             return UIImage(named: "ic_popup_file_download", in: Bundle.module, compatibleWith: nil)
         case .custom(let icon):
             return icon
+        case .none:
+            return nil
+        }
+    }
+    
+    var isHiddenArea: Bool {
+        switch self {
+        case .pill, .exclamation, .downloadFile, .custom(_):
+            return false
+        case .none:
+            return true
         }
     }
 }

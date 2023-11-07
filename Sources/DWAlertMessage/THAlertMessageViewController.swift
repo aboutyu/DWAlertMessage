@@ -23,6 +23,7 @@ class THAlertMessageViewController: UIViewController {
     private lazy var image: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
+        image.isHidden = self.dto.messageType.isHiddenArea
         image.image = self.dto.messageType.icon
         return image
     }()
@@ -130,11 +131,15 @@ class THAlertMessageViewController: UIViewController {
         self.popup.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20).isActive = true
         self.popup.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20).isActive = true
         
-        self.image.centerXAnchor.constraint(equalTo: self.popup.centerXAnchor).isActive = true
-        self.image.widthAnchor.constraint(equalToConstant: self.imageSize).isActive = true
-        self.image.heightAnchor.constraint(equalToConstant: self.imageSize).isActive = true
-        self.image.topAnchor.constraint(equalTo: self.popup.topAnchor, constant: 24).isActive = true
-        self.image.bottomAnchor.constraint(equalTo: self.labelStack.topAnchor, constant: -24).isActive = true
+        if !(self.dto.messageType.isHiddenArea) {
+            self.image.centerXAnchor.constraint(equalTo: self.popup.centerXAnchor).isActive = true
+            self.image.widthAnchor.constraint(equalToConstant: self.imageSize).isActive = true
+            self.image.heightAnchor.constraint(equalToConstant: self.imageSize).isActive = true
+            self.image.topAnchor.constraint(equalTo: self.popup.topAnchor, constant: 24).isActive = true
+            self.image.bottomAnchor.constraint(equalTo: self.labelStack.topAnchor, constant: -24).isActive = true
+        } else {
+            self.labelStack.topAnchor.constraint(equalTo: self.popup.topAnchor, constant: 24).isActive = true
+        }
         
         self.labelStack.leadingAnchor.constraint(equalTo: self.popup.leadingAnchor, constant: self.popupSideMargin).isActive = true
         self.labelStack.trailingAnchor.constraint(equalTo: self.popup.trailingAnchor, constant: -self.popupSideMargin).isActive = true
