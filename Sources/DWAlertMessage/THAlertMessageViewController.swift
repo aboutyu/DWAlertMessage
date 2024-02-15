@@ -173,8 +173,7 @@ extension THAlertMessageViewController: UICollectionViewDataSource {
     }
     
     public func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        self.dismiss(animated: true) {
-            self.delegate.tappedButtonPopupV2View(self.dto.button[indexPath.row], data: self.dto.data)
-        }
+        self.dismiss(animated: true)
+        self.delegate.tappedButtonPopupV2View(self.dto.button[indexPath.row], data: self.dto.data)
     }
 }
