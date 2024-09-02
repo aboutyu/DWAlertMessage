@@ -29,6 +29,7 @@ class THAlertMessageButtonCell: UICollectionViewCell {
         
         [nameLabel].forEach { self.addSubview($0) }
         self.layer.cornerRadius = 10
+        self.layer.borderWidth = 1.0
         
         self.nameLabel.centerXAnchor.constraint(equalTo: self.centerXAnchor).isActive = true
         self.nameLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
