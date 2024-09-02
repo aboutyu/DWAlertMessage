@@ -37,5 +37,6 @@ class THAlertMessageButtonCell: UICollectionViewCell {
         self.nameLabel.textColor = button.textColor
         self.nameLabel.font = button.font
         self.backgroundColor = button.buttonColor
+        self.layer.borderColor = button.borderColor
     }
 }

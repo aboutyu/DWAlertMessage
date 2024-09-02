@@ -45,4 +45,13 @@ public enum THAlertMessageButton {
             return button.buttonColor
         }
     }
+    
+    var borderColor: CGColor {
+        switch self {
+        case .submit(let button, _):
+            return button.borderColor.cgColor
+        case .cancel(let button):
+            return button.borderColor.cgColor
+        }
+    }
 }
