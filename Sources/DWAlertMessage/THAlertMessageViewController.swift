@@ -87,7 +87,11 @@ class THAlertMessageViewController: UIViewController {
     private var dto: THAlertMessageDto
     private let popupSideMargin: CGFloat = 26.0
     private let imageSize: CGFloat = 48.0
-    private let buttonHeigh: CGFloat = 46.0
+    private var buttonHeight: CGFloat {
+        get {
+            dto.buttonHeight
+        }
+    }
     
     init(_ delegate: THAlertViewControllerDelegate, dto: THAlertMessageDto) {
         self.delegate = delegate
@@ -148,7 +152,7 @@ class THAlertMessageViewController: UIViewController {
         self.buttonStack.leadingAnchor.constraint(equalTo: self.popup.leadingAnchor, constant: self.popupSideMargin).isActive = true
         self.buttonStack.trailingAnchor.constraint(equalTo: self.popup.trailingAnchor, constant: -self.popupSideMargin).isActive = true
         self.buttonStack.bottomAnchor.constraint(equalTo: self.popup.bottomAnchor, constant: -16).isActive = true
-        self.buttonStack.heightAnchor.constraint(equalToConstant: self.buttonHeigh).isActive = true
+        self.buttonStack.heightAnchor.constraint(equalToConstant: self.buttonHeight).isActive = true
     }
 }
 
@@ -157,7 +161,7 @@ extension THAlertMessageViewController: UICollectionViewDelegateFlowLayout {
         let popupWidth = self.popup.frame.size.width
         let cnt = CGFloat(self.dto.button.count)
         let width: CGFloat = ((popupWidth - (self.popupSideMargin * 2.0)) / cnt) - ((cnt - 1) + 5)
-        return CGSize(width: width, height: self.buttonHeigh)
+        return CGSize(width: width, height: self.buttonHeight)
     }
 }
 

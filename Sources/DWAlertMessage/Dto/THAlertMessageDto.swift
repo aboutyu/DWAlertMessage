@@ -12,16 +12,19 @@ public struct THAlertMessageDto {
     var title: THAlertMessageTitleStyle?
     var message: NSAttributedString
     var button: [THAlertMessageButton]
+    var buttonHeight: CGFloat
     var data: Any?
     
     public init(type: THAlertMessageType,
                 title: THAlertMessageTitleStyle? = nil,
                 message: NSAttributedString,
                 button: [THAlertMessageButton],
+                buttonHeight: CGFloat = 46.0,
                 data: Any? = nil) {
         self.messageType = type
         self.title = title
         self.message = message
+        self.buttonHeight = buttonHeight
         self.data = data
         
         self.button = {
